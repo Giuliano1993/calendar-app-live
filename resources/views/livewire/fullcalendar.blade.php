@@ -68,7 +68,7 @@ on(['createappointment' => function () {
                             $day = '';
                         }
                     @endphp
-                    <livewire:singledaycellvolt key="{{uniqid()}}" day="{{$day}}" selected="{{$day == $selectedDay}}">
+                    <livewire:singledaycellvolt key="{{uniqid()}}" day="{{$day}}" month="{{$month}}" selected="{{$day == $selectedDay}}">
                 </div>
             @endfor
         @endfor

@@ -1,3 +1,3 @@
 <div>
-    //
+    {{ $appointment->title}}
 </div>
