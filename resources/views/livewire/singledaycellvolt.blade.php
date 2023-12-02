@@ -19,17 +19,13 @@ $activated = function(){
     }
 };
 
-mount(function(){
-    
-});
 
 with(function(){
     $date = new DateTime();
     $date->setDate($date->format('Y'), $this->month, (int)$this->day);
-    $appointments = Appointment::where('date',$date->format('Y-m-d'))->get();
+    $appointments = Appointment::where('date',$date->format('Y-m-d'))->orderBy('time','ASC')->get();
     return [
         'appointments'=>$appointments,
-        ''
     ];
 })
 ?>

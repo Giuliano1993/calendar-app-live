@@ -43,6 +43,10 @@ on(['createappointment' => function () {
 }]);
 
 
+on(['saved' => function () {
+    $this->showModal = false;
+}]);
+
 ?>
 <div class="flex flex-col w-100 h-[100vh]">
     
