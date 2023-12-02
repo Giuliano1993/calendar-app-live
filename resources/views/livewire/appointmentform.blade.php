@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Appointment;
 use App\Livewire\Forms\AppointmentForm;
 use function Livewire\Volt\{state, rules, mount, form};
 
@@ -9,22 +10,30 @@ state([
     'day',
     'month',
     'year',
-    'successMessage'
+    'successMessage',
+    'method'
 ]);
 
-mount(function($day,$month,$year){
-    /**
-     * @var DateTime $d
-     * */
-    $d= (new DateTime());
-    $d->setDate($year, $month, $day);
-    $date = $d->format('Y-m-d');
-    $this->form->setDate($date);
+mount(function($day = null,$month=null,$year=null, $appointmentId=null){
+    
+    if(!is_null($appointmentId)){
+        $appointment = Appointment::find($appointmentId);
+        $this->form->setAppointment($appointment);
+    }else{
+        /**
+         * @var DateTime $d
+         * */
+        $d= (new DateTime());
+        $d->setDate($year, $month, $day);
+        $date = $d->format('Y-m-d');
+        $this->form->setDate($date);
+    }
 
 });
 
 $submit = function(){
-    $this->form->store(); 
+    $method = $this->method;
+    $this->form->$method(); 
     $this->message = 'Appointment saved';
     $this->dispatch('saved');
 }

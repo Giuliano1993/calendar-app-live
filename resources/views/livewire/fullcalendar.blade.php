@@ -48,16 +48,16 @@ on(['saved' => function () {
 }]);
 
 ?>
-<div class="flex flex-col w-100 h-[100vh]">
+<div class="flex flex-col w-100 h-[100vh] my-3 ">
     
     <div class="flex flex-wrap">
-        <div class="w-1/7">Monday</div>
-        <div class="w-1/7">Tuesday</div>
-        <div class="w-1/7">Wednesday</div>
-        <div class="w-1/7">Thursday</div>
-        <div class="w-1/7">Friday</div>
-        <div class="w-1/7">Saturday</div>
-        <div class="w-1/7">Sunday</div>
+        <div class="w-1/7 text-yellow-600 font-semibold text-center bg-cyan-100 py-4">Monday</div>
+        <div class="w-1/7 text-yellow-600 font-semibold text-center bg-cyan-100 py-4">Tuesday</div>
+        <div class="w-1/7 text-yellow-600 font-semibold text-center bg-cyan-100 py-4">Wednesday</div>
+        <div class="w-1/7 text-yellow-600 font-semibold text-center bg-cyan-100 py-4">Thursday</div>
+        <div class="w-1/7 text-yellow-600 font-semibold text-center bg-cyan-100 py-4">Friday</div>
+        <div class="w-1/7 text-yellow-600 font-semibold text-center bg-cyan-100 py-4">Saturday</div>
+        <div class="w-1/7 text-yellow-600 font-semibold text-center bg-cyan-100 py-4">Sunday</div>
     </div>
     <div class="flex flex-wrap h-100 grow">
         @for ($w = 0; $w < 5; $w++)
