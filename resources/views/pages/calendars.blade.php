@@ -18,20 +18,20 @@ render(function (View $view, Calendar $post) {
     <div class="w-3/4 m-auto">
         <h1 class="text-2xl text-white font-extrabold py-5">Your Calendars</h1>
         @if (count($calendars->toArray()) > 0)
-            <a class="ml-auto inline-block my-3 p-3 bg-lime-500 rounded-md" href="/calendars/new">Create calendar</a>
+            <a class="ml-auto inline-block my-3 p-3 bg-lime-500 rounded-md text-blue-950 font-bold" href="/calendars/new">Create calendar</a>
         @endif
         @forelse ($calendars as $calendar)
-            <div class=" bg-cyan-200 text-blue-950 font-bold flex justify-between p-4">
+            <div class=" bg-blue-300 text-blue-950 font-bold flex justify-between p-4 my-1 rounded-sm">
                 <div>
                     <h2 class="text-lg">{{$calendar->name}}</h2>
                     <h3>{{$calendar->description}}</h3>
                 </div>
                 <div>
-                    <a class="ml-auto inline-block my-3 p-3 bg-lime-500 rounded-md" href="/calendars/{{$calendar->id}}">Open Calendar</a>    
+                    <a class="ml-auto inline-block my-3 p-3 bg-lime-500 rounded-md shadow shadow-lime-600" href="/calendars/{{$calendar->id}}">Open Calendar</a>    
                 </div>
             </div>
         @empty
-            <div class="bg-cyan-600 text-blue-950 font-bold flex align-middle gap-3 p-3">
+            <div class="bg-blue-300 text-blue-950 font-bold flex align-middle gap-3 p-3">
                 
                 <p class="self-center">No calendars Yet!</p>
 

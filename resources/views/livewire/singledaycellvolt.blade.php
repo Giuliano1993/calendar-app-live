@@ -36,9 +36,10 @@ with(function(){
     </div> 
 
     @foreach ($appointments as $a)
-        <div style="background-color: {{$a->calendar->color}}" class="w-full rounded-md @if(!$a->calendar->color) bg-green-700 @endif font-bold py-1 px-2 shadow-sm shadow-green-900">
+        <div style="background-color: {{$a->calendar->color}}" class="w-full text-sm rounded-md @if(!$a->calendar->color) bg-green-700 @endif font-bold py-1 px-2 shadow-sm shadow-green-900">
             <a href="/calendars/{{$calendarId}}/appointments/{{$a->id}}">
-                {{$a->time()}} - {{ $a->endtime()}} {{$a->title;}}</a>
+                {{$a->time()}} - {{ $a->endtime()}} {{$a->title;}}
+            </a>
         </div>
     @endforeach
     <button></button>

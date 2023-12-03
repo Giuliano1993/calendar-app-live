@@ -13,8 +13,8 @@
         <!-- Styles -->
         @vite('resources/css/app.css')
     </head>
-    <body class="antialiased bg-slate-800">
-        <nav class="w-full flex py-4 bg-cyan-200 justify-between text-blue-950">
+    <body class="antialiased bg-zinc-800">
+        <nav class="w-full flex py-4 bg-blue-300 justify-between text-blue-950">
             <h1 class="text-2xl ml-3  font-extrabold">My CalendAPP</h1>
             <ul class="flex">
                 <li class="px-3">
