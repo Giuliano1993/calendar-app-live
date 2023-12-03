@@ -56,35 +56,35 @@ $submit = function(){
         @endif
         <div class="flex flex-col">
             <label>Date</label>
-            <input type="date" wire:model="form.date">
+            <input class="rounded-md bg-zinc-800 text-white p-2 caret-lime-500 focus:ring-lime-500 focus:outline-none focus:ring" type="date" wire:model="form.date">
             @error('form.date')
                 <div class="text-red-700 ">{{ $message }}</div>
             @enderror
         </div>
         <div class="flex flex-col">
             <label>Time</label>
-            <input type="time" wire:model="form.time">
+            <input class="rounded-md bg-zinc-800 text-white p-2 caret-lime-500 focus:ring-lime-500 focus:outline-none focus:ring" type="time" wire:model="form.time">
             @error('form.time')
                 <div class="text-red-700 ">{{ $message }}</div>
             @enderror
         </div>
         <div class="flex flex-col">
             <label>End Time</label>
-            <input type="time" wire:model="form.endtime">
+            <input class="rounded-md bg-zinc-800 text-white p-2 caret-lime-500 focus:ring-lime-500 focus:outline-none focus:ring" type="time" wire:model="form.endtime">
             @error('form.endtime')
                 <div class="text-red-700 ">{{ $message }}</div>
             @enderror
         </div>
         <div class="flex flex-col">
             <label>Title</label>
-            <input type="text" wire:model="form.title">
+            <input class="rounded-md bg-zinc-800 text-white p-2 caret-lime-500 focus:ring-lime-500 focus:outline-none focus:ring" type="text" wire:model="form.title">
             @error('form.title')
                 <div class="text-red-700 ">{{ $message }}</div>
             @enderror
         </div>
         <div class="flex flex-col">
             <label>Description</label>
-            <textarea wire:model="form.description"></textarea>
+            <textarea class="rounded-md bg-zinc-800 text-white p-2 caret-lime-500 focus:ring-lime-500 focus:outline-none focus:ring" wire:model="form.description"></textarea>
             @error('form.description')
                 <div class="text-red-700 ">{{ $message }}</div>
             @enderror
@@ -96,7 +96,7 @@ $submit = function(){
             Saving appointment...
         </div>
         
-        <button class=" bg-green-800  text-cyan-50 rounded-sm ml-auto mt-5 block px-3 py-2" type="submit">
+        <button class=" bg-lime-500 shadow shadow-lime-600 text-blue-950 font-extrabold rounded-sm ml-auto mt-5 block px-3 py-2"  type="submit">
             Save
         </button>
         

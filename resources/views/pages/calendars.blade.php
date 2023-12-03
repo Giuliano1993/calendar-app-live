@@ -26,8 +26,11 @@ render(function (View $view, Calendar $post) {
                     <h2 class="text-lg">{{$calendar->name}}</h2>
                     <h3>{{$calendar->description}}</h3>
                 </div>
-                <div>
-                    <a class="ml-auto inline-block my-3 p-3 bg-lime-500 rounded-md shadow shadow-lime-600" href="/calendars/{{$calendar->id}}">Open Calendar</a>    
+                <div class="self-end ml-auto mr-2">
+                    <a class="button " href="/calendars/{{$calendar->id}}">Open Calendar</a>    
+                </div>
+                <div class="self-end">
+                    <a class="button" href="/calendars/{{$calendar->id}}/edit">Edit</a>    
                 </div>
             </div>
         @empty
@@ -35,7 +38,7 @@ render(function (View $view, Calendar $post) {
                 
                 <p class="self-center">No calendars Yet!</p>
 
-                <a class="ml-auto inline-block my-3 p-3 bg-lime-500 rounded-md" href="/calendars/new">Create your first calendar</a>
+                <a class="button" href="/calendars/new">Create your first calendar</a>
             </div>
             
         @endforelse

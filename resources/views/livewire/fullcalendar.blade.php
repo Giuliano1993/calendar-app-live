@@ -53,6 +53,10 @@ on(['saved' => function () {
     $this->showModal = false;
 }]);
 
+on(['closeModal'=> function(){
+    $this->showModal = false;
+}]);
+
 $nextMonth = function(){
     $days = [
          "Monday",

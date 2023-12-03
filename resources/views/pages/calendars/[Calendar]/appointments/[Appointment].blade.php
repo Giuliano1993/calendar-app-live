@@ -18,8 +18,8 @@
             {{$appointment->description}}
         </div>
         <div class="flex content-end justify-end gap-3">
-            <a href="/calendars/{{$appointment->calendar_id}}/appointments/{{$appointment->id}}/edit" class=" text-white rounded-md bg-green-800 px-5 py-3 inline-block">Edit</a>
-            <a href="/calendars/{{$appointment->calendar_id}}" class=" text-white rounded-md bg-green-800 px-5 py-3 inline-block">Back to Calendar</a>
+            <a href="/calendars/{{$appointment->calendar_id}}/appointments/{{$appointment->id}}/edit" class="button">Edit</a>
+            <a href="/calendars/{{$appointment->calendar_id}}" class="button">Back to Calendar</a>
         </div>
     </div>
 @endsection
