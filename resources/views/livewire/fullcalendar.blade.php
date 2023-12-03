@@ -11,9 +11,10 @@ state([
     'selectedDay'=>'',
     'startDay'=>'',
     'showModal'=>false,
-    'year'=>date("Y")
+    'year'=>date("Y"),
+    'calendarId'=>null
 ]);
-mount(function($month = NULL){
+mount(function($calendarId,$month = NULL){
      $days = [
          "Monday",
          "Tuesday",
@@ -23,6 +24,7 @@ mount(function($month = NULL){
          "Saturday",
          "Sunday"
      ];
+     $this->calendarId = $calendarId;
      $this->month = $month ?? (new \DateTime())->format('m');                
      $this->selectedDay = date('d');
 
@@ -48,7 +50,7 @@ on(['saved' => function () {
 }]);
 
 ?>
-<div class="flex flex-col w-100 h-[100vh] my-3 ">
+<div class="flex flex-col w-100 h-[calc(100vh-100px)] my-3 ">
     
     <div class="flex flex-wrap">
         <div class="w-1/7 text-yellow-600 font-semibold text-center bg-cyan-100 py-4">Monday</div>
@@ -72,12 +74,12 @@ on(['saved' => function () {
                             $day = '';
                         }
                     @endphp
-                    <livewire:singledaycellvolt key="{{uniqid()}}" day="{{$day}}" month="{{$month}}" selected="{{$day == $selectedDay}}">
+                    <livewire:singledaycellvolt key="{{uniqid()}}" day="{{$day}}" month="{{$month}}" selected="{{$day == $selectedDay}}" calendarId="{{$calendarId}}">
                 </div>
             @endfor
         @endfor
     </div>
     @if($this->showModal)
-        <livewire:appointmentmodal day="{{$selectedDay}}" month="{{$month}}" year="{{$year}}">
+        <livewire:appointmentmodal day="{{$selectedDay}}" month="{{$month}}" year="{{$year}}" calendarId="{{$calendarId}}">
     @endif
 </div>

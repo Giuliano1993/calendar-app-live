@@ -6,17 +6,20 @@
             Date: {{ \DateTime::createFromFormat('Y-m-d',$appointment->date)->format('d/m/Y') }}
         </div>
         <div class="font-bold">
-            At {{ $appointment->time}}
+            From {{ $appointment->time}}
+        </div>
+        <div class="font-bold">
+            to {{ $appointment->endtime}}
         </div>
         <div class="font-bold  text-lg">
             {{ $appointment->title}}
         </div>
         <div>
-            {{$appointment->descrizione}}
+            {{$appointment->description}}
         </div>
         <div class="flex content-end justify-end gap-3">
-            <a href="/appointments/{{$appointment->id}}/edit" class=" text-white rounded-md bg-green-800 px-5 py-3 inline-block">Edit</a>
-            <a href="/calendar" class=" text-white rounded-md bg-green-800 px-5 py-3 inline-block">Back to Calendar</a>
+            <a href="/calendars/{{$appointment->calendar_id}}/appointments/{{$appointment->id}}/edit" class=" text-white rounded-md bg-green-800 px-5 py-3 inline-block">Edit</a>
+            <a href="/calendars/{{$appointment->calendar_id}}" class=" text-white rounded-md bg-green-800 px-5 py-3 inline-block">Back to Calendar</a>
         </div>
     </div>
 @endsection

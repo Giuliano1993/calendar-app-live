@@ -11,13 +11,16 @@ state([
     'month',
     'year',
     'successMessage',
-    'method'
+    'method',
+    'calendar_id',
+    'appointment'
 ]);
 
 mount(function($day = null,$month=null,$year=null, $appointmentId=null){
     
     if(!is_null($appointmentId)){
         $appointment = Appointment::find($appointmentId);
+        $this->appointment = $appointment;
         $this->form->setAppointment($appointment);
     }else{
         /**
@@ -33,25 +36,42 @@ mount(function($day = null,$month=null,$year=null, $appointmentId=null){
 
 $submit = function(){
     $method = $this->method;
+    if($this->calendar_id)$this->form->setCalendarId($this->calendar_id);
     $this->form->$method(); 
-    $this->message = 'Appointment saved';
+    //$this->successMessage = 'Appointment saved';
     $this->dispatch('saved');
+
+    if($method == 'update'){
+
+        return $this->redirect("/calendars/{$this->appointment->calendar_id}/appointments/{$this->appointment->id}",navigate:true);
+    }
+
 }
 ?>
 
 <div>
     <form wire:submit.prevent="submit">
+        @if($successMessage)
+            <div class="bg-green-700  text-white rounded-md px-2 py-3 my-3">{{ $successMessage }}</div>
+        @endif
         <div class="flex flex-col">
-            <label>Appointment Date</label>
+            <label>Date</label>
             <input type="date" wire:model="form.date">
             @error('form.date')
                 <div class="text-red-700 ">{{ $message }}</div>
             @enderror
         </div>
         <div class="flex flex-col">
-            <label>Appointment Time</label>
+            <label>Time</label>
             <input type="time" wire:model="form.time">
             @error('form.time')
+                <div class="text-red-700 ">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="flex flex-col">
+            <label>End Time</label>
+            <input type="time" wire:model="form.endtime">
+            @error('form.endtime')
                 <div class="text-red-700 ">{{ $message }}</div>
             @enderror
         </div>
@@ -69,14 +89,16 @@ $submit = function(){
                 <div class="text-red-700 ">{{ $message }}</div>
             @enderror
         </div>
+        @error('form.calendar_id')
+            <div class="text-red-700 ">{{ $message }}</div>
+        @enderror
         <div wire:loading> 
             Saving appointment...
         </div>
-        @if($successMessage)
-            <div class="text-green-700 ">{{ $successMessage }}</div>
-        @endif
+        
         <button class=" bg-green-800  text-cyan-50 rounded-sm ml-auto mt-5 block px-3 py-2" type="submit">
             Save
         </button>
+        
     </form>
 </div>

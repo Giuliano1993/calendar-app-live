@@ -8,7 +8,7 @@ use App\Models\Appointment;
 state('day');
 state('month');
 state('selected', false);
-//state('appointments');
+state('calendarId');
 
 //
 $activated = function(){
@@ -23,7 +23,7 @@ $activated = function(){
 with(function(){
     $date = new DateTime();
     $date->setDate($date->format('Y'), $this->month, (int)$this->day);
-    $appointments = Appointment::where('date',$date->format('Y-m-d'))->orderBy('time','ASC')->get();
+    $appointments = Appointment::where('date',$date->format('Y-m-d'))->where('calendar_id',$this->calendarId)->orderBy('time','ASC')->get();
     return [
         'appointments'=>$appointments,
     ];
@@ -37,7 +37,7 @@ with(function(){
 
     @foreach ($appointments as $a)
         <div class="w-full rounded-md bg-green-700 font-bold py-1 px-2 shadow-sm shadow-green-900">
-            <a href="/appointments/{{$a->id}}">{{$a->title;}}</a>
+            <a href="/calendars/{{$calendarId}}/appointments/{{$a->id}}">{{$a->time}} - {{ $a->endtime}} {{$a->title;}}</a>
         </div>
     @endforeach
     <button></button>
