@@ -16,4 +16,16 @@ class Appointment extends Model
     public function calendar(){
         return $this->belongsTo(Calendar::class);
     }
+
+    public function time(){
+        return \DateTime::createFromFormat('H:i:s',$this->time)->format('H:i');
+    }
+
+    public function endTime(){
+        return \DateTime::createFromFormat('H:i:s',$this->endtime)->format('H:i');
+    }
+
+    public function date(){
+        return \DateTime::createFromFormat('Y-m-d',$this->date)->format('d/m/Y');
+    }
 }

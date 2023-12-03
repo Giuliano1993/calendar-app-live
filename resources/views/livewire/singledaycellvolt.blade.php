@@ -30,14 +30,15 @@ with(function(){
 })
 ?>
 
-<div  wire:click="activated">
+<div  wire:click="activated" class=" self-stretch grow">
     <div @if($selected)  class="text-white bg-green-600 rounded-full w-5 h-5 text-center leading-none" @else class="text-white"  @endif>
         {{$day}}
     </div> 
 
     @foreach ($appointments as $a)
-        <div class="w-full rounded-md bg-green-700 font-bold py-1 px-2 shadow-sm shadow-green-900">
-            <a href="/calendars/{{$calendarId}}/appointments/{{$a->id}}">{{$a->time}} - {{ $a->endtime}} {{$a->title;}}</a>
+        <div style="background-color: {{$a->calendar->color}}" class="w-full rounded-md @if(!$a->calendar->color) bg-green-700 @endif font-bold py-1 px-2 shadow-sm shadow-green-900">
+            <a href="/calendars/{{$calendarId}}/appointments/{{$a->id}}">
+                {{$a->time()}} - {{ $a->endtime()}} {{$a->title;}}</a>
         </div>
     @endforeach
     <button></button>

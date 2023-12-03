@@ -64,7 +64,7 @@ on(['saved' => function () {
     <div class="flex flex-wrap h-100 grow">
         @for ($w = 0; $w < 5; $w++)
             @for ($d = 1; $d <= 7; $d++)
-                <div class="cell w-1/7">
+                <div class="cell w-1/7 border flex">
                     @php
                         if($w ==0 && $d == $startDay + 1){
                             $day = 1;

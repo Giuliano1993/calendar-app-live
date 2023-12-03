@@ -3,13 +3,13 @@
 @section('content')
     <div class="w-3/4 m-auto bg-blue-300 rounded-md p-7 mt-11">
         <div class="font-bold  text-xl">
-            Date: {{ \DateTime::createFromFormat('Y-m-d',$appointment->date)->format('d/m/Y') }}
+            Date: {{$appointment->date()}}
         </div>
         <div class="font-bold">
-            From {{ $appointment->time}}
+            From {{ $appointment->time()}}
         </div>
         <div class="font-bold">
-            to {{ $appointment->endtime}}
+            to {{ $appointment->endtime()}}
         </div>
         <div class="font-bold  text-lg">
             {{ $appointment->title}}
