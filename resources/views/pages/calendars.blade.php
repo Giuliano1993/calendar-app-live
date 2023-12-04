@@ -13,7 +13,7 @@ render(function (View $view, Calendar $post) {
 
 
 
-@extends('welcome')
+@extends('layout')
 @section('content')
     <div class="w-3/4 m-auto">
         <h1 class="text-2xl text-white font-extrabold py-5">Your Calendars</h1>
@@ -27,10 +27,10 @@ render(function (View $view, Calendar $post) {
                     <h3>{{$calendar->description}}</h3>
                 </div>
                 <div class="self-end ml-auto mr-2">
-                    <a class="button " href="/calendars/{{$calendar->id}}">Open Calendar</a>    
+                    <a class="button " href="/calendars/{{$calendar->id}}" wire:navigate >Open Calendar</a>    
                 </div>
                 <div class="self-end">
-                    <a class="button" href="/calendars/{{$calendar->id}}/edit">Edit</a>    
+                    <a class="button" href="/calendars/{{$calendar->id}}/edit" wire:navigate >Edit</a>    
                 </div>
             </div>
         @empty
@@ -38,7 +38,7 @@ render(function (View $view, Calendar $post) {
                 
                 <p class="self-center">No calendars Yet!</p>
 
-                <a class="button" href="/calendars/new">Create your first calendar</a>
+                <a class="button" href="/calendars/new" wire:navigate>Create your first calendar</a>
             </div>
             
         @endforelse

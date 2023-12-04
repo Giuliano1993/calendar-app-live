@@ -128,7 +128,7 @@ $prevMonth = function(){
                         }
                     @endphp
                     @if($day >= 1 && $day <= $this->lastDayNumber)
-                        <livewire:singledaycell key="{{uniqid()}}" day="{{$day}}" month="{{$month}}" selected="{{$day == $selectedDay}}" calendarId="{{$calendarId}}">
+                        <livewire:singledaycell key="{{uniqid()}}" day="{{$day}}" month="{{$month}}" selected="{{$day == $selectedDay}}" calendar="{{$calendarId}}">
                     @endif
                 </div>
             @endfor
